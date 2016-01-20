@@ -13,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -37,6 +39,7 @@ public class Patient implements Serializable {
     private String tel;
     
     @Column(name = "bday")
+    @Temporal(TemporalType.DATE)
     private Date bday;
     
     @Column(name = "gender")
@@ -52,6 +55,11 @@ public class Patient implements Serializable {
 
     public String getFname() {
         return fname;
+    }
+
+    @Override
+    public String toString() {
+        return "Patient:" + "id=" + id + "\n fname=" + fname + "\n lname=" + lname + "\n tel=" + tel + "\n bday=" + bday + "\n gender=" + gender + '.';
     }
 
     public void setFname(String fname) {

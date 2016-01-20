@@ -27,13 +27,69 @@ import javax.persistence.TemporalType;
 @Table(name = "CONSULTATION")
 public class Consultation implements Serializable{
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public Date getC_date() {
+        return c_date;
+    }
+
+    public void setC_date(Date c_date) {
+        this.c_date = c_date;
+    }
+
+    public Float getC_weight() {
+        return c_weight;
+    }
+
+    public void setC_weight(Float c_weight) {
+        this.c_weight = c_weight;
+    }
+
+    public Float getC_gm() {
+        return c_gm;
+    }
+
+    public void setC_gm(Float c_gm) {
+        this.c_gm = c_gm;
+    }
+
+    public Float getC_mm() {
+        return c_mm;
+    }
+
+    public void setC_mm(Float c_mm) {
+        this.c_mm = c_mm;
+    }
+
+    public Float getC_hm() {
+        return c_hm;
+    }
+
+    public void setC_hm(Float c_hm) {
+        this.c_hm = c_hm;
+    }
+
     @Id
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     @Column(name = "c_id")
     private Long id;
     
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name = "p_id")
+    @JoinColumn(name = "p_id", referencedColumnName="id")
     private Patient patient;
     
     @Column(name = "c_date")
