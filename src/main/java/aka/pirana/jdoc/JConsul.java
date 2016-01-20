@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import org.jfree.ui.RefineryUtilities;
 
 /**
  *
@@ -86,6 +87,7 @@ public class JConsul extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         resTab = new javax.swing.JTable();
         save_Btn = new javax.swing.JButton();
+        chartGen_Btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,6 +106,13 @@ public class JConsul extends javax.swing.JFrame {
         save_Btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 save_BtnActionPerformed(evt);
+            }
+        });
+
+        chartGen_Btn.setText("Draw Chart");
+        chartGen_Btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chartGen_BtnActionPerformed(evt);
             }
         });
 
@@ -132,7 +141,9 @@ public class JConsul extends javax.swing.JFrame {
                             .addComponent(hm_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addComponent(save_Btn)))
+                        .addComponent(save_Btn)
+                        .addGap(203, 203, 203)
+                        .addComponent(chartGen_Btn)))
                 .addContainerGap(128, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -158,7 +169,9 @@ public class JConsul extends javax.swing.JFrame {
                     .addComponent(hm_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addComponent(save_Btn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(save_Btn)
+                    .addComponent(chartGen_Btn))
                 .addContainerGap(234, Short.MAX_VALUE))
         );
 
@@ -187,20 +200,15 @@ public class JConsul extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_save_BtnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    /*public static void main(String args[]) {
-        
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JConsul().setVisible(true);
-            }
-        });
-    }*/
+    private void chartGen_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chartGen_BtnActionPerformed
+        JChart jChart = new JChart("Current Patient", callerID);
+        jChart.pack();
+        RefineryUtilities.centerFrameOnScreen(jChart);
+        jChart.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_chartGen_BtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton chartGen_Btn;
     private javax.swing.JTextField gm_txt;
     private javax.swing.JTextField hm_txt;
     private javax.swing.JLabel jLabel1;
